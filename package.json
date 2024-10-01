@@ -1,6 +1,6 @@
 {
-  "name": "date-fns-tz",
-  "version": "3.2.0",
+  "name": "tynliuk-date-fns-tz",
+  "version": "3.2.2",
   "sideEffects": false,
   "description": "Time zone support for date-fns v3 with the Intl API",
   "author": "Marnus Weststrate <marnusw@gmail.com>",
@@ -22,7 +22,7 @@
   "scripts": {
     "prepack": "npm run build",
     "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:esm": "tsc -p tsconfig.esm.json && echo {\"type\":\"module\"} > dist/esm/package.json",
+    "build:esm": "tsc -p tsconfig.esm.json && cp package-esm.json dist/esm/package.json",
     "build": "npm run clean && npm run build:cjs && npm run build:esm",
     "clean": "rm -rf dist",
     "test": "cross-env NODE_OPTIONS=\"--openssl-legacy-provider\" karma start config/karma.js",
@@ -33,7 +33,7 @@
   "engine": {
     "node": ">= 0.11"
   },
-  "type": "commonjs",
+  "type": "module",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "exports": {
